@@ -5,6 +5,8 @@ const clearBtn = document.querySelector(".clear-button");
 const rgbBtn = document.querySelector(".RGB");
 let numGrid = 16;
 
+displayText.textContent = `The size of grid ${numGrid} & ${numGrid}`;
+
 function createDiv() {
     for (let i = 0; i < (numGrid * numGrid); i++) {
         const square = document.createElement("div");
@@ -14,6 +16,10 @@ function createDiv() {
         square.addEventListener("mousemove", () => {
             square.style.backgroundColor = "red";
         })
+
+        clearBtn.addEventListener("click", () => {
+            square.style.backgroundColor = "white"; 
+         })
     }
 }
 
@@ -23,6 +29,8 @@ chnageBtn.addEventListener("click", () => {
         alert("Re-enter the number between 1 to 80");
         return;
     }
+
+    createDiv(userInput);
 })
 
 createDiv();
